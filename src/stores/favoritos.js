@@ -12,7 +12,8 @@ export const useFavoritosStore = defineStore('favoritos', () =>{
     const favoritos = ref([])
 
     onMounted( () => {
-        favoritos.value = JSON.parse(localStorage.getItem('favoritos' ?? []))
+        favoritos.value = JSON.parse(localStorage.getItem('favoritos')) || [] //corregido
+        //favoritos.value = JSON.parse(localStorage.getItem('favoritos' ?? []))
     })
 
     watch(favoritos, () => {
